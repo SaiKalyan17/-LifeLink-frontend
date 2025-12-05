@@ -13,7 +13,6 @@
 // } from "react-native";
 // import { SafeAreaView } from "react-native-safe-area-context";
 
-// const API_CREATE_DONOR = `${import.meta.env.VITE_API_BASE_URL}/user/create-donor`;
 
 // export default function CreateDonorScreen(): JSX.Element {
 //   const [name, setName] = useState("");
@@ -161,9 +160,6 @@
 
 
 import { Picker } from "@react-native-picker/picker";
-import dotenv from "dotenv";
-dotenv.config();
-
 import { Redirect, router } from "expo-router";
 import React, { useState } from "react";
 import {

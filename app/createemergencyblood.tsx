@@ -1,7 +1,4 @@
 import { Picker } from "@react-native-picker/picker";
-import dotenv from "dotenv";
-dotenv.config();
-
 import { Redirect, router } from "expo-router";
 import React, { useState } from "react";
 
