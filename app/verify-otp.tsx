@@ -1,3 +1,4 @@
+import Constants from "expo-constants";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
@@ -10,7 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
 const API_VERIFY = `${API_BASE}/user/verify-otp`;
 const API_RESEND = `${API_BASE}/user/resend-otp`;
 

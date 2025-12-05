@@ -1,4 +1,5 @@
 import { Picker } from "@react-native-picker/picker";
+import Constants from "expo-constants";
 import React, { useEffect, useState } from "react";
 import {
     ActivityIndicator,
@@ -10,7 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
 const API_GET_CITIES = `${API_BASE}/user/get-cities`;
 const API_GET_EMERGENCY =
   `${API_BASE}/user/get-emergency-blood`; // + /:city

@@ -1,3 +1,4 @@
+import Constants from "expo-constants";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -10,7 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
 
 export default function RegisterScreen() {
   const [userName, setUserName] = useState("");

@@ -161,6 +161,7 @@
 
 
 import { Picker } from "@react-native-picker/picker";
+import Constants from "expo-constants";
 import { Redirect, router } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -177,7 +178,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "./AuthContext";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
 const API_CREATE_DONOR = `${API_BASE}/user/create-donor`;
 
 export default function CreateDonorScreen() {

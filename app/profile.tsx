@@ -1,3 +1,4 @@
+import Constants from "expo-constants";
 import { Redirect, router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
@@ -11,7 +12,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "./AuthContext";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
 const API_PROFILE = `${API_BASE}/user/profile`;
 
 export default function ProfileScreen() {

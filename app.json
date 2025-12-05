@@ -48,6 +48,7 @@
       "reactCompiler": true
     },
     "extra": {
+       "API_BASE_URL": "https://lifelink-br3q.onrender.com",
       "router": {},
       "eas": {
         "projectId": "12c3c501-6161-4d45-beba-a43f668dac92"
