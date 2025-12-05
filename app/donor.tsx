@@ -161,24 +161,26 @@
 
 
 import { Picker } from "@react-native-picker/picker";
-import Constants from "expo-constants";
+import dotenv from "dotenv";
+dotenv.config();
+
 import { Redirect, router } from "expo-router";
 import React, { useState } from "react";
 import {
-    ActivityIndicator,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "./AuthContext";
 
-const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
+const API_BASE = process.env.EXPO_PUBLIC_API_URL;
 const API_CREATE_DONOR = `${API_BASE}/user/create-donor`;
 
 export default function CreateDonorScreen() {

@@ -1,17 +1,19 @@
 import { Picker } from "@react-native-picker/picker";
-import Constants from "expo-constants";
+import dotenv from "dotenv";
+dotenv.config();
+
 import React, { useEffect, useState } from "react";
 import {
-    ActivityIndicator,
-    FlatList,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
+const API_BASE = process.env.EXPO_PUBLIC_API_URL;
 const API_GET_CITIES = `${API_BASE}/user/get-cities`;
 const API_SEARCH_CITY_BG = `${API_BASE}/user/get-by-bloodgroup`;
 const API_SEARCH_CITY_ONLY = `${API_BASE}/user/get-donors`;

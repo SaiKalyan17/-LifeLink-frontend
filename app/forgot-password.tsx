@@ -1,17 +1,18 @@
+import dotenv from "dotenv";
+dotenv.config();
 
-import Constants from "expo-constants";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {
-    ActivityIndicator,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const API_BASE = Constants.expoConfig?.extra?.API_BASE_URL;
+const API_BASE = process.env.EXPO_PUBLIC_API_URL;
 const API_SEND_OTP = `${API_BASE}/user/forgot-password`;
 const API_RESET_PASSWORD = `${API_BASE}/user/reset-password`;
 
