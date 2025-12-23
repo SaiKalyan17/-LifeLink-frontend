@@ -223,7 +223,7 @@
 
 import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Redirect, router } from "expo-router";
-import React, { useRef, useState } from "react";
+import React, {useEffect, useRef, useState } from "react";
 import {
     Dimensions,
     Image,
@@ -241,6 +241,9 @@ const { width } = Dimensions.get("window");
 export default function HomeScreen() {
   const { token, tloading, logout } = useAuth();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [userName, setUserName] = useState<string>("");
+  const [nameLoading, setNameLoading] = useState(true);
+
   const sliderRef = useRef<ScrollView | null>(null);
 
   if (tloading) return null;
@@ -257,11 +260,41 @@ export default function HomeScreen() {
     require("../assets/images/image1.jpg"),
   ];
 
+    useEffect(() => {
+  const fetchUserName = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.EXPO_PUBLIC_API_URL}/user/profileName`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      // assuming API returns: { name: "Kalyan" }
+      setUserName(data.name || "User");
+    } catch (error) {
+      console.error("Failed to fetch user name", error);
+      setUserName("User");
+    } finally {
+      setNameLoading(false);
+    }
+  };
+
+  fetchUserName();
+}, []);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Greeting */}
-        <Text style={styles.greeting}>Hello, Kalyan 👋</Text>
+        <Text style={styles.greeting}>
+  Hello, {nameLoading ? "..." : userName} 👋
+</Text>
         <Text style={styles.subGreeting}>Welcome to PulseConnect</Text>
 
         {/* 📸 IMAGE SLIDER */}
